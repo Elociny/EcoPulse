@@ -1,7 +1,308 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap');
 
+:root {
+    --verde-musgo: #353519;
+    --verde-ocre: #666538;
+    --verde-opaco: #4F6950;
+    --preto: #222222;
+    --branco: #EBEBEB;
+
+    --dela-gothic-one: "Special Gothic Expanded One", sans-serif;
+    --poppins: "Poppins", sans-serif;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
+    font-family: var(--poppins);
+}
+
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 10vw;
+
+    height: 10vh;
+
+    color: var(--branco);
+
+    background-color: var(--verde-ocre);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    cursor: pointer;
+}
+
+.logo h1 {
+    font-family: var(--dela-gothic-one);
+
+    color: var(--branco);
+}
+
+.logo h1 span {
+    font-family: var(--dela-gothic-one);
+    color: var(--verde-musgo);
+}
+
+.logo-svg {
+    height: 3.5rem;
+    width: 3.5rem;
+    color: var(--verde-musgo);
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--branco);
+
+    text-decoration: none;
+
+    transition: .5s;
+}
+
+nav ul li a:hover {
+    cursor: pointer;
+
+    color: var(--verde-musgo);
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+    background-color: var(--verde-musgo);
+
+    background-image: url('/src/images/jungle.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #35351998;
+    backdrop-filter: blur(10px);
+
+    border: 2px solid var(--verde-musgo);
+    border-radius: 1rem;
+
+    height: 90%;
+    width: 95%;
+
+    color: var(--branco);
+}
+
+section .logo {
+    font-size: 1.5rem;
+}
+
+section .logo h1 span, section .logo .logo-svg {
+    color: var(--verde-ocre);
+}
+
+section .text {
+    text-align: center;
+}
+
+section button {
+    padding: 1rem 0;
+    width: 20vw;
+
+    border: none;
+    border-radius: .5rem;
+
+    color: var(--branco);
+    font-size: 1rem;
+
+    background-color: var(--verde-ocre);
+
+    cursor: pointer;
+
+    transition: .5s;
+}
+
+section button a {
+    color: var(--branco);
+}
+
+section button:hover {
+    background-color: var(--verde-opaco);
+}
+
+section button span {
+    font-family: var(--dela-gothic-one);
+    font-weight: bold;
+}
+
+section button span span {
+    color: var(--verde-musgo);
+}
+
+.sobre {
+    height: 90vh;
+    margin: 3rem 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    background-image: url('/src/images/plants.png');
+    background-repeat: no-repeat;
+    background-size: 50% auto;
+    background-position: top left;
+
+    border-radius: 1rem;
+
+    box-shadow: 0px 0px 50px 5px rgba(53, 53, 25, 0.64);
+}
+
+.sobre .infos {
+    padding: 0 1rem;
+
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    color: var(--preto);
+}
+
+.infos h1, .infos h1 span {
+    font-family: var(--dela-gothic-one);
+    font-size: 2rem;
+}
+
+.infos h1 span span {
+    color: var(--verde-musgo);
+}
+
+footer {
+    height: 20vh;
+}
+
+@media (max-width: 970px) {
+    header {
+        padding: 0 5vh;
+    }
+
+    main {
+        height: 60vh;
+    }
+
+    section button {
+        width: 50%;
+    }
+
+    .sobre {
+        margin: 2rem 1rem;
+        align-items: end;
+        justify-content: flex-end;
+    
+        background-size: 60% auto;
+    }
+
+    .sobre .infos {
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    
+        width: 100%;
+    
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    
+        color: var(--preto);
+    }
+}
+
+@media (max-width: 600px) {
+    header .logo {
+        font-size: .7rem;
+    }
+    
+    header .logo .logo-svg {
+        width: 20%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    main {
+        height: 80vh;
+    }
+
+    section .logo {
+        font-size: 1.2rem;
+    }
+    
+    section .logo .logo-svg {
+        width: 20%;
+    }
+
+    section button {
+        width: 90%;
+    }
+
+    .sobre {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    
+        background-image: none;
+    }
+    
+    .sobre .infos {
+        padding: 1rem;
+    }
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--branco);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--verde-ocre);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--verde-opaco); /* Cor do polegar no hover */
 }
