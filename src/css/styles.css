@@ -210,11 +210,9 @@ section button span span {
     color: var(--preto);
 }
 
-
 .infos h1,
 .infos h1 span {
     font-family: var(--dela-gothic-one);
-    font-size: 3rem;
     color: var(--preto);
 }
 
@@ -463,11 +461,6 @@ section.planos .logo h1 {
     border: 1px solid var(--verde-opaco);
 }
 
-.faq summary {
-    font-size: 25px; 
-    line-height: auto; 
-}
-
 section.cta-final {
     display: flex;
     justify-content: center;
@@ -673,7 +666,6 @@ h1 {
 }
 
 /* CELULAR */
-
 @media (max-width: 600px) {
  
     header .logo {
@@ -740,7 +732,6 @@ h1 {
 }
 
 /* CELULAR PEQUENO */
-
 @media (max-width: 480px) {
     .depoimento {
         width: 90%;
@@ -765,7 +756,6 @@ h1 {
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--verde-opaco);
 }
-
 
 .scrollable {
     overflow-y: scroll;
@@ -800,4 +790,3 @@ h1 {
 .scrollable:hover {
     scrollbar-width: thin; 
 }
-
