@@ -15,10 +15,12 @@
     --cor-background-transparente: rgba(0, 0, 0, 0.4);
     --sombra-suave2: 0 8px 20px rgba(0, 0, 0, 0.1);
     --cinza-claro: #f1f1f1;
-    --cinza-escuro: #555; 
-    --cor-fundo-claro: rgba(235, 235, 235, 0.7); 
-    --sombra-escura: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    --cinza-escuro: #555;
+    --cor-fundo-claro: rgba(235, 235, 235, 0.7);
+    --sombra-escura: 0 8px 20px rgba(0, 0, 0, 0.2);
     --verde-claro: #90ee90;
+    --sombra-escura2: rgba(0, 0, 0, 0.2);
+    --sombra-clara: rgba(255, 255, 255, 0.1)
 }
 
 * {
@@ -56,7 +58,6 @@ a:focus {
 
 .logo-svg {
     color: var(--verde-musgo);
-
     height: 3rem;
 }
 
@@ -80,7 +81,7 @@ header {
 
     background-color: var(--verde-ocre);
 
-    position: fixed;
+    position: relative;
     z-index: 1000;
 
     transition: top 0.3s;
@@ -161,15 +162,17 @@ section button {
     font-size: 1rem;
     background-color: var(--verde-ocre);
     cursor: pointer;
-    transition: .5s;
+    transition: transform 0.3s ease;
 }
 
 section button a {
     color: var(--branco);
+    text-decoration: none;
 }
 
 section button:hover {
     background-color: var(--verde-opaco);
+    transform: scale(1.1);
 }
 
 section button span {
@@ -187,26 +190,20 @@ section button span span {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     background-image: url('/src/images/plants.png');
     background-repeat: no-repeat;
     background-size: 50% auto;
     background-position: top left;
-
     border-radius: 1rem;
-
     box-shadow: 0px 0px 50px 5px rgba(53, 53, 25, 0.64);
 }
 
 .sobre .infos {
     padding: 0 1rem;
-
     width: 60%;
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
     color: var(--preto);
 }
 
@@ -228,45 +225,36 @@ section button span span {
 
 .comentarios {
     background-color: var(--verde-musgo);
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-items: center;
-
     padding: 3rem 10vw;
 }
 
 section .wrap {
     padding: 2rem 0;
-    
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    
     color: var(--preto);
     text-align: center;
 }
 
 .depoimento {
     background-color: var(--branco);
-    
     border-radius: .5rem;
-
-    padding:  0 1rem;
-
+    padding: 0 1rem;
     width: 25%;
     height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     text-align: left;
-
     box-shadow: var(--sombra-suave);
 }
 
@@ -320,6 +308,7 @@ section.planos .logo h1 {
     width: 100%;
 }
 
+
 .cards-planos {
     display: flex;
     flex-wrap: wrap;
@@ -333,24 +322,18 @@ section.planos .logo h1 {
 .plano {
     background-color: var(--cor-fundo-claro);
     box-shadow: var(--sombra-escura);
-    
     border-radius: 1rem;
     border: 2px solid var(--verde-musgo);
-    
     padding: 2rem;
-    
     width: 30%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
-    
     color: var(--preto);
     text-align: center;
-    
     transition: transform 0.3s ease;
-
     backdrop-filter: blur(5px);
 }
 
@@ -383,78 +366,66 @@ section.planos .logo h1 {
 
 .plano button {
     background-color: var(--branco);
-    box-shadow:var(--sombra-escura);
-
+    box-shadow: var(--sombra-escura);
     width: 50%;
-
     font-size: 1rem;
     color: var(--preto);
     font-weight: bold;
-    
     padding: .5rem 0;
-    
     border: 1px solid var(--verde-musgo);
     border-radius: 2rem;
-
     cursor: pointer;
     transition: .5s;
 }
 
 .plano button:hover {
     background-color: var(--verde-opaco);
-
     color: var(--branco);
-
     border-color: var(--verde-opaco);
 }
 
 .faq {
     background-color: var(--branco);
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     gap: 1rem;
-
     padding: 1rem 10vw;
 }
 
 .faq h1 {
     color: var(--verde-musgo);
-    text-align: center; 
+    text-align: center;
 }
 
 .faq details {
-    border-radius: .5rem; 
-    
-    width: 100%; 
-    box-sizing: border-box; 
+    border-radius: .5rem;
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .faq summary {
     font-weight: bold;
     color: var(--branco);
-    
     padding: 1rem;
-
-    border-radius: .5rem; 
-
+    border-radius: .5rem;
     background-color: var(--verde-ocre);
-
     cursor: pointer;
 }
 
 .faq details[open] summary {
-    background-color:var(--verde-opaco); 
-    border-radius: .5rem .5rem 0 0; 
+    background-color: var(--verde-opaco);
+    border-radius: .5rem .5rem 0 0;
 }
 
 .faq p {
     font-size: 1.1rem;
     color: var(--cinza-escuro);
     padding: 1rem;
-    background-color: var(--cinza-claro); 
-    border-radius: 0 0 .5rem .5rem; 
+    background-color: var(--cinza-claro);
+    border-radius: 0 0 .5rem .5rem;
 }
 
 .faq details[open] p {
@@ -465,36 +436,27 @@ section.cta-final {
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: var(--branco);
-
-    padding: 2rem 10vw; 
+    padding: 2rem 10vw;
 }
 
 .cta-card {
-    background-image: url('/src/images/plants.png'); 
+    background-image: url('/src/images/plants.png');
     background-size: cover;
     background-position: center;
-    
-    border-radius: 20px; 
-
+    border-radius: 20px;
     width: 100%;
-
     padding: 2rem 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
     color: var(--branco);
-    
     position: relative;
 }
 
 .cta-texto {
     width: 70%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -504,17 +466,13 @@ section.cta-final {
 
 .cta-texto button {
     padding: 1rem 0;
-
     border: none;
     border-radius: .5rem;
-
     color: var(--branco);
     font-size: 1rem;
-
     background-color: var(--verde-ocre);
-    
     cursor: pointer;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .cta-texto button a {
@@ -523,7 +481,7 @@ section.cta-final {
 }
 
 .cta-texto button:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 .cta-card::before {
@@ -533,7 +491,7 @@ section.cta-final {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--cor-background-transparente); 
+    background-color: var(--cor-background-transparente);
     border-radius: 16px;
     z-index: 0;
 }
@@ -544,21 +502,20 @@ section.cta-final {
 }
 
 .footer {
-    background-color: var(--verde-musgo); 
-    
-    padding: 1rem 10vw;
-
+    background-color: var(--verde-musgo);
+    padding: 1rem 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-
-    color: var(--branco); 
-    text-align: center; 
+    gap: 1rem;
+    color: var(--branco);
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.footer a .logo h1 span, footer .logo svg {
+.footer a .logo h1 span,
+footer .logo svg {
     color: var(--verde-ocre);
 }
 
@@ -567,10 +524,6 @@ section.cta-final {
     width: 100%;
 }
 
-h1 {
-    opacity: 0;
-    animation: fadeInTitle 2s ease-in-out forwards;
-}
 
 @keyframes fadeInTitle {
     to {
@@ -580,7 +533,7 @@ h1 {
 
 .card {
     opacity: 0;
-    animation: fadeInCards 2s ease-in-out 1s forwards; 
+    animation: fadeInCards 2s ease-in-out 1s forwards;
 }
 
 @keyframes fadeInCards {
@@ -590,17 +543,28 @@ h1 {
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
 }
 
-/* TABLET */
+.menu-toggle,
+.menu-icon {
+    display: none; 
+}
+
+.menu {
+    display: flex; 
+}
+
 @media (max-width: 1024px) {
-    
+
     header {
         padding: 0 2vw;
     }
@@ -612,17 +576,20 @@ h1 {
     main section {
         margin: 1rem 1vw;
     }
-    
+
     section button {
         width: 50%;
     }
 
     .sobre {
-        background-size: 60% auto;
-
-        margin: 2rem 2vw;
+        background-size: 400px auto;
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 100%;
+        display: flex;
+        margin: 1rem;
+        padding: 2rem 1rem;
         
-        height: 50vh;
     }
 
     .sobre .infos {
@@ -639,7 +606,7 @@ h1 {
         width: 45%;
         height: 25vh;
     }
-    
+
     .cards-planos {
         margin: 0 1vw;
     }
@@ -653,7 +620,7 @@ h1 {
     }
 
     section.cta-final {
-        padding: 2rem 2vw; 
+        padding: 2rem 2vw;
     }
 
     .cta-texto {
@@ -665,9 +632,8 @@ h1 {
     }
 }
 
-/* CELULAR */
 @media (max-width: 600px) {
- 
+
     header .logo {
         font-size: .7rem;
     }
@@ -676,9 +642,107 @@ h1 {
         width: 20%;
     }
 
-    nav {
+    .menu-icon {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--verde-musgo), var(--verde-ocre));
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px var(--sombra-escura2);
+        border: 2px solid var(--branco);
+        position: absolute;
+        top: 50%; 
+        right: 10px; 
+        transform: translateY(-50%);
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .menu-icon .fa-bars {
         display: none;
     }
+    .menu-icon::before,
+    .menu-icon::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: var(--branco);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .menu-icon::before {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 0 var(--branco); 
+    }
+
+    .menu-icon::after {
+        transform: translateY(6px);
+    }
+
+    #menu-toggle:checked + .menu-icon::before {
+        transform: rotate(45deg);
+        box-shadow: none; 
+    }
+
+    #menu-toggle:checked + .menu-icon::after {
+        transform: rotate(-45deg);
+    }
+
+
+    .menu-icon:active {
+        transform: scale(0.9);
+    }
+
+    #menu-toggle:checked~.menu {
+        display: flex;
+        right: 0;
+    }
+    
+    .menu {
+        display: none;
+        position: fixed;
+        top: 10vh;
+        right: -100%;
+        width: 60%;
+        height: auto;
+        background: var(--sombra-ecopulse);
+        backdrop-filter: blur(10px);
+        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        padding: 1rem 0;
+        border-radius: 8px 0 0 8px;
+        box-shadow: -5px 0 15px var(--sombra-escura2);
+        border-left: 3px solid var(--verde-ocre);
+        z-index: 1000;
+
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+
+    .menu ul li a {
+        color: var(--branco);
+        padding: 0.3rem 1rem;
+        display: block;
+        text-align: center;
+        font-size: 0.95rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        margin: 0 0.5rem;
+    }
+
+    .menu ul li a:hover {
+        background: var(--sombra-clara);
+        transform: translateX(5px);
+    }
+
 
     main {
         height: 80vh;
@@ -699,16 +763,50 @@ h1 {
     .sobre {
         height: 100%;
         display: flex;
-        align-items: center;
-        background-image: none;
         margin: 1rem;
-        padding: 1rem;
+        background-size: 45% auto; 
+        background-position: top left;
+        padding: 2rem 1rem;
+    }
+
+    .sobre .infos {
+        width: 100%;
+        padding: 1.5rem;
+        align-items: center;
+        text-align: left;
+    }
+
+    .sobre .logo h1 {
+        margin-left: 5rem; 
+        text-align: center;
     }
     
+    
+    .sobre .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre .eco-logo {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .sobre .logo-svg {
+        position: static; 
+        transform: none;
+        bottom: auto;
+        height: 3rem; 
+        margin-top: 0;
+        margin-left: 0.5rem; 
+    }
+
+
+
     .depoimento {
         width: 90%;
     }
-    
+
     section.planos {
         padding: 1rem;
 
@@ -717,13 +815,68 @@ h1 {
     .plano {
         width: 100%;
     }
+    
+    
+    .planos .logo h1 {
+        margin-top: 2rem;
+        margin-right: 1rem; 
+        text-align: right;
+    }
+    
+    
+    .planos .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .planos .eco-logo {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .planos .logo-svg {
+        position: static; 
+        transform: none;
+        bottom: auto;
+        height: 3rem;
+        margin-top: 0;
+        margin-left: 0.5rem; 
+    }
+
 
     .faq {
         padding: 0 5vw;
     }
-    
+
     .faq summary {
         font-size: 1.1rem;
+    }
+
+    .faq .logo h1 {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+        text-align: left;
+    }
+    
+    
+    .faq .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq .eco-logo {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .faq .logo-svg {
+        position: static; 
+        transform: none;
+        bottom: auto;
+        height: 3rem;
+        margin-top: 0;
+        margin-left: 0.5rem; 
     }
 
     .cta-card {
@@ -731,7 +884,7 @@ h1 {
     }
 }
 
-/* CELULAR PEQUENO */
+
 @media (max-width: 480px) {
     .depoimento {
         width: 90%;
@@ -739,7 +892,7 @@ h1 {
     }
 }
 
-/* SCROLL BAR */
+
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -763,11 +916,11 @@ h1 {
 
 
 .scrollable::-webkit-scrollbar {
-    width: 0px; 
+    width: 0px;
 }
 
 .scrollable::-webkit-scrollbar-track {
-    background: transparent; 
+    background: transparent;
 }
 
 .scrollable::-webkit-scrollbar-thumb {
@@ -776,17 +929,17 @@ h1 {
 
 
 .scrollable:hover::-webkit-scrollbar {
-    width: 8px; 
+    width: 8px;
 }
 
 .scrollable:hover::-webkit-scrollbar-thumb {
-    background-color: var(--verde-ocre); 
+    background-color: var(--verde-ocre);
 }
 
 .scrollable:hover::-webkit-scrollbar-thumb:hover {
-    background-color: var(--verde-opaco); 
+    background-color: var(--verde-opaco);
 }
 
 .scrollable:hover {
-    scrollbar-width: thin; 
+    scrollbar-width: thin;
 }
