@@ -6,21 +6,23 @@
     --verde-opaco: #4F6950;
     --preto: #222222;
     --branco: #EBEBEB;
-    --verde-musgo-transparent-10: rgba(83, 53, 25, 0.1);
-    --dela-gothic-one: "Special Gothic Expanded One", sans-serif;
-    --poppins: "Poppins", sans-serif;
-    --sombra-ecopulse: 0px 0px 50px 5px rgba(53, 53, 25, 0.64);
-    --sombra-suave: 0 10px 20px rgba(0, 0, 0, 0.15);
     --gold: #ffd700;
-    --cor-background-transparente: rgba(0, 0, 0, 0.4);
-    --sombra-suave2: 0 8px 20px rgba(0, 0, 0, 0.1);
     --cinza-claro: #f1f1f1;
     --cinza-escuro: #555;
     --cor-fundo-claro: rgba(235, 235, 235, 0.7);
-    --sombra-escura: 0 8px 20px rgba(0, 0, 0, 0.2);
     --verde-claro: #90ee90;
+
+    --verde-musgo-transparent-10: rgba(83, 53, 25, 0.1);
+    --sombra-verde-ocre: #66653873;
+    --sombra-preta: #22222281;
+    --sombra-ecopulse: 0px 0px 50px 5px rgba(53, 53, 25, 0.64);
+    --sombra-suave: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --cor-background-transparente: rgba(0, 0, 0, 0.4);
+    --sombra-suave2: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --sombra-escura: 0 8px 20px rgba(0, 0, 0, 0.2);
     --sombra-escura2: rgba(0, 0, 0, 0.2);
-    --sombra-clara: rgba(255, 255, 255, 0.1)
+    --sombra-clara: rgba(255, 255, 255, 0.1) --dela-gothic-one: "Special Gothic Expanded One", sans-serif;
+    --poppins: "Poppins", sans-serif;
 }
 
 * {
@@ -81,7 +83,8 @@ header {
 
     background-color: var(--verde-ocre);
 
-    position: relative;
+    position: fixed;
+    top: 0;
     z-index: 1000;
 
     transition: top 0.3s;
@@ -556,11 +559,11 @@ footer .logo svg {
 
 .menu-toggle,
 .menu-icon {
-    display: none; 
+    display: none;
 }
 
 .menu {
-    display: flex; 
+    display: flex;
 }
 
 @media (max-width: 1024px) {
@@ -582,20 +585,48 @@ footer .logo svg {
     }
 
     .sobre {
-        background-size: 400px auto;
+        position: relative;
+        background-size: 70% auto;
         background-repeat: no-repeat;
         background-position: top left;
         height: 100%;
         display: flex;
         margin: 1rem;
         padding: 2rem 1rem;
-        
+        border-radius: 1rem;
+        overflow: hidden;
+
+        box-shadow: none;
+    }
+
+    .sobre::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: var(--cor-background-transparente);
+        z-index: 0;
+    }
+
+    .sobre .infos .logo {
+        display: block;
+    }
+
+    .infos .logo h1 span, .infos .logo h1 span svg {
+        color: var(--verde-musgo);
+    }
+
+    .sobre .infos, .infos .logo h1, .infos .logo h1 span span{
+        color: var(--branco);
+
     }
 
     .sobre .infos {
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        position: relative;
+        z-index: 1;
     }
 
     .comentarios {
@@ -633,7 +664,6 @@ footer .logo svg {
 }
 
 @media (max-width: 600px) {
-
     header .logo {
         font-size: .7rem;
     }
@@ -644,17 +674,20 @@ footer .logo svg {
 
     .menu-icon {
         display: flex;
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, var(--verde-musgo), var(--verde-ocre));
+        width: 2.5rem;
+        height: 2.5rem;
         border-radius: 50%;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 5px var(--sombra-escura2);
-        border: 2px solid var(--branco);
         position: absolute;
-        top: 50%; 
-        right: 10px; 
+        top: 50%;
+        right: 10px;
+
+        background-color: var(--verde-ocre);
+        box-shadow: 0 2px 5px var(--sombra-escura2);
+
+        border: 2px solid var(--branco);
+
         transform: translateY(-50%);
         z-index: 1001;
         transition: all 0.3s ease;
@@ -663,6 +696,7 @@ footer .logo svg {
     .menu-icon .fa-bars {
         display: none;
     }
+
     .menu-icon::before,
     .menu-icon::after {
         content: '';
@@ -676,22 +710,21 @@ footer .logo svg {
 
     .menu-icon::before {
         transform: translateY(-6px);
-        box-shadow: 0 6px 0 var(--branco); 
+        box-shadow: 0 6px 0 var(--branco);
     }
 
     .menu-icon::after {
         transform: translateY(6px);
     }
 
-    #menu-toggle:checked + .menu-icon::before {
+    #menu-toggle:checked+.menu-icon::before {
         transform: rotate(45deg);
-        box-shadow: none; 
+        box-shadow: none;
     }
 
-    #menu-toggle:checked + .menu-icon::after {
+    #menu-toggle:checked+.menu-icon::after {
         transform: rotate(-45deg);
     }
-
 
     .menu-icon:active {
         transform: scale(0.9);
@@ -701,7 +734,7 @@ footer .logo svg {
         display: flex;
         right: 0;
     }
-    
+
     .menu {
         display: none;
         position: fixed;
@@ -709,15 +742,17 @@ footer .logo svg {
         right: -100%;
         width: 60%;
         height: auto;
-        background: var(--sombra-ecopulse);
-        backdrop-filter: blur(10px);
-        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         padding: 1rem 0;
-        border-radius: 8px 0 0 8px;
-        box-shadow: -5px 0 15px var(--sombra-escura2);
-        border-left: 3px solid var(--verde-ocre);
-        z-index: 1000;
 
+        background: var(--sombra-verde-ocre);
+        backdrop-filter: blur(10px);
+        box-shadow: -5px 0 15px var(--sombra-escura2);
+
+        border-top: 1px solid var(--verde-ocre);
+        border-left: 3px solid var(--verde-ocre);
+
+        z-index: 1000;
+        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     .menu ul {
@@ -726,13 +761,11 @@ footer .logo svg {
         width: 100%;
     }
 
-
     .menu ul li a {
         color: var(--branco);
         padding: 0.3rem 1rem;
         display: block;
         text-align: center;
-        font-size: 0.95rem;
         border-radius: 6px;
         transition: all 0.3s ease;
         margin: 0 0.5rem;
@@ -740,9 +773,10 @@ footer .logo svg {
 
     .menu ul li a:hover {
         background: var(--sombra-clara);
-        transform: translateX(5px);
-    }
+        transform: translateY(-5px);
 
+        color: var(--branco);
+    }
 
     main {
         height: 80vh;
@@ -761,47 +795,8 @@ footer .logo svg {
     }
 
     .sobre {
-        height: 100%;
-        display: flex;
-        margin: 1rem;
-        background-size: 45% auto; 
-        background-position: top left;
-        padding: 2rem 1rem;
+        background-size: 100% auto;
     }
-
-    .sobre .infos {
-        width: 100%;
-        padding: 1.5rem;
-        align-items: center;
-        text-align: left;
-    }
-
-    .sobre .logo h1 {
-        margin-left: 5rem; 
-        text-align: center;
-    }
-    
-    
-    .sobre .logo {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sobre .eco-logo {
-        display: inline-flex;
-        align-items: center;
-    }
-
-    .sobre .logo-svg {
-        position: static; 
-        transform: none;
-        bottom: auto;
-        height: 3rem; 
-        margin-top: 0;
-        margin-left: 0.5rem; 
-    }
-
-
 
     .depoimento {
         width: 90%;
@@ -815,15 +810,13 @@ footer .logo svg {
     .plano {
         width: 100%;
     }
-    
-    
+
     .planos .logo h1 {
         margin-top: 2rem;
-        margin-right: 1rem; 
+        margin-right: 1rem;
         text-align: right;
     }
-    
-    
+
     .planos .logo {
         flex-direction: column;
         align-items: center;
@@ -835,12 +828,12 @@ footer .logo svg {
     }
 
     .planos .logo-svg {
-        position: static; 
+        position: static;
         transform: none;
         bottom: auto;
         height: 3rem;
         margin-top: 0;
-        margin-left: 0.5rem; 
+        margin-left: 0.5rem;
     }
 
 
@@ -858,8 +851,8 @@ footer .logo svg {
         margin-left: 2rem;
         text-align: left;
     }
-    
-    
+
+
     .faq .logo {
         flex-direction: column;
         align-items: center;
@@ -871,12 +864,12 @@ footer .logo svg {
     }
 
     .faq .logo-svg {
-        position: static; 
+        position: static;
         transform: none;
         bottom: auto;
         height: 3rem;
         margin-top: 0;
-        margin-left: 0.5rem; 
+        margin-left: 0.5rem;
     }
 
     .cta-card {
@@ -884,14 +877,16 @@ footer .logo svg {
     }
 }
 
-
-@media (max-width: 480px) {
+@media (max-width: 420px) {
+    .infos .logo h1 {
+        display: flex;
+        flex-direction: column;
+    }
     .depoimento {
         width: 90%;
         height: 40vh;
     }
 }
-
 
 ::-webkit-scrollbar {
     width: 12px;
