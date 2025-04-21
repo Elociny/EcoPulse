@@ -611,13 +611,12 @@ footer .logo svg {
         display: block;
     }
 
-    .infos .logo h1 span, .infos .logo h1 span svg {
-        color: var(--verde-musgo);
-    }
-
-    .sobre .infos, .infos .logo h1, .infos .logo h1 span span{
+    .sobre .infos,
+    .infos .logo h1,
+    .infos .logo h1 span,
+    .infos .logo h1 span span,
+    .infos .logo h1 span svg {
         color: var(--branco);
-
     }
 
     .sobre .infos {
@@ -882,6 +881,7 @@ footer .logo svg {
         display: flex;
         flex-direction: column;
     }
+
     .depoimento {
         width: 90%;
         height: 40vh;
